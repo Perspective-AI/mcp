@@ -59,10 +59,19 @@ Add this to:
 ## Building from Source
 
 ```bash
+npm install
 npm run pack
 ```
 
 Outputs `perspective.mcpb` in the current directory.
+
+## Releasing
+
+```bash
+npm run release
+```
+
+Bumps version, commits, tags, and pushes. GitHub Action creates the release.
 
 ## Links
 
