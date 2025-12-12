@@ -2,44 +2,45 @@
 
 /**
  * Perspective AI MCP Extension
- *
- * Proxies Claude Desktop's stdio transport to the Perspective AI remote MCP server.
+ * Proxies Claude Desktop (stdio) to Perspective AI remote MCP server (HTTP).
  */
 
-const { spawn } = require("child_process");
+const { StdioServerTransport } = require("@modelcontextprotocol/sdk/server/stdio.js");
+const { StreamableHTTPClientTransport } = require("@modelcontextprotocol/sdk/client/streamableHttp.js");
 
 const ACCESS_TOKEN = process.env.PERSPECTIVE_ACCESS_TOKEN;
-const SERVER_URL =
-  process.env.PERSPECTIVE_SERVER_URL || "https://getperspective.ai/mcp";
+const SERVER_URL = process.env.PERSPECTIVE_SERVER_URL || "https://getperspective.ai/mcp";
 
 if (!ACCESS_TOKEN) {
-  console.error("Error: PERSPECTIVE_ACCESS_TOKEN is required");
+  console.error("PERSPECTIVE_ACCESS_TOKEN is required");
   process.exit(1);
 }
 
-const child = spawn(
-  "npx",
-  [
-    "-y",
-    "mcp-remote",
-    SERVER_URL,
-    "--header",
-    `Authorization: Bearer ${ACCESS_TOKEN}`,
-  ],
-  {
-    stdio: "inherit",
-    shell: true,
-  }
-);
+async function runProxy() {
+  const localTransport = new StdioServerTransport();
+  let remoteTransport = null;
 
-child.on("error", (err) => {
-  console.error("Failed to start mcp-remote:", err.message);
-  process.exit(1);
-});
+  localTransport.onmessage = async (message) => {
+    if (!remoteTransport) {
+      remoteTransport = new StreamableHTTPClientTransport(new URL(SERVER_URL), {
+        requestInit: { headers: { Authorization: `Bearer ${ACCESS_TOKEN}` } },
+      });
 
-child.on("exit", (code) => {
-  process.exit(code || 0);
-});
+      remoteTransport.onmessage = (response) => localTransport.send(response);
+      remoteTransport.onclose = () => process.exit(0);
 
-process.on("SIGINT", () => child.kill("SIGINT"));
-process.on("SIGTERM", () => child.kill("SIGTERM"));
+      await remoteTransport.start();
+    }
+
+    await remoteTransport.send(message);
+  };
+
+  localTransport.onclose = () => {
+    remoteTransport?.close();
+    process.exit(0);
+  };
+
+  await localTransport.start();
+}
+
+runProxy().catch(() => process.exit(1));
