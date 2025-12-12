@@ -1,0 +1,21 @@
+{
+  "name": "@perspective-ai/mcp",
+  "version": "0.0.1",
+  "description": "Perspective AI MCP Extension for Claude Desktop",
+  "main": "server.js",
+  "scripts": {
+    "pack": "npx -y @anthropic-ai/mcpb pack && mv perspective-mcp.mcpb perspective.mcpb",
+    "start": "node server.js"
+  },
+  "keywords": ["mcp", "claude", "perspective", "ai", "research"],
+  "author": "Perspective AI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Perspective-AI/perspective-mcp.git"
+  },
+  "homepage": "https://getperspective.ai",
+  "bugs": {
+    "url": "https://github.com/Perspective-AI/perspective-mcp/issues"
+  }
+}

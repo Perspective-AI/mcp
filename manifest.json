@@ -1,0 +1,100 @@
+{
+  "manifest_version": "0.3",
+  "name": "perspective",
+  "display_name": "Perspective AI",
+  "version": "0.0.1",
+  "description": "Uncover customer insights through meaningful conversations at scale.",
+  "long_description": "Connect Claude to Perspective AI—the platform that helps businesses understand their customers through AI-mediated conversations, not surveys. Analyze conversation transcripts, identify themes and pain points, get aggregate statistics, create new research perspectives using natural language, and deploy conversational research across channels. Replace guesswork with clarity and data-driven insights.",
+  "author": {
+    "name": "Perspective AI",
+    "email": "support@getperspective.ai",
+    "url": "https://getperspective.ai"
+  },
+  "homepage": "https://getperspective.ai",
+  "documentation": "https://getperspective.ai/docs/mcp",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Perspective-AI/perspective-mcp"
+  },
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server.js"],
+      "env": {
+        "PERSPECTIVE_ACCESS_TOKEN": "${user_config.access_token}",
+        "PERSPECTIVE_SERVER_URL": "${user_config.server_url}"
+      }
+    }
+  },
+  "user_config": {
+    "access_token": {
+      "type": "string",
+      "title": "Access Token",
+      "description": "Your Perspective AI MCP access token. Generate one at Settings > MCP.",
+      "sensitive": true,
+      "required": true
+    },
+    "server_url": {
+      "type": "string",
+      "title": "Server URL",
+      "description": "Perspective AI MCP server URL (only change for self-hosted instances)",
+      "default": "https://getperspective.ai/mcp",
+      "required": false
+    }
+  },
+  "tools": [
+    {
+      "name": "workspace_list",
+      "description": "List all workspaces you have access to"
+    },
+    {
+      "name": "workspace_get",
+      "description": "Get details of a specific workspace"
+    },
+    {
+      "name": "perspective_list",
+      "description": "List all perspectives in a workspace"
+    },
+    {
+      "name": "perspective_get",
+      "description": "Get perspective configuration and stats"
+    },
+    {
+      "name": "perspective_create",
+      "description": "Create a new perspective from natural language"
+    },
+    {
+      "name": "perspective_update",
+      "description": "Update perspective with feedback"
+    },
+    {
+      "name": "perspective_get_stats",
+      "description": "Get aggregate statistics for a perspective"
+    },
+    {
+      "name": "perspective_list_conversations",
+      "description": "List conversations with filtering"
+    },
+    {
+      "name": "perspective_get_conversation",
+      "description": "Get full conversation details"
+    },
+    {
+      "name": "perspective_get_conversations_batch",
+      "description": "Get batch of conversations for analysis"
+    },
+    {
+      "name": "perspective_get_preview_link",
+      "description": "Get shareable preview link for a perspective"
+    },
+    {
+      "name": "perspective_get_embed_options",
+      "description": "Get embed configuration options"
+    }
+  ],
+  "prompts_generated": true
+}

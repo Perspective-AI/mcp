@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Pack extension
+        run: npx -y @anthropic-ai/mcpb pack
+
+      - name: Rename artifact
+        run: mv perspective-mcp.mcpb perspective.mcpb
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: perspective.mcpb
+          generate_release_notes: true
