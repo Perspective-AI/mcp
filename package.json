@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "pack": "npx -y @anthropic-ai/mcpb pack && mv perspective-mcp.mcpb perspective.mcpb",
-    "start": "node server.js"
+    "start": "node server.js",
+    "version": "node -e \"const m=require('./manifest.json');m.version='$npm_package_version';require('fs').writeFileSync('./manifest.json',JSON.stringify(m,null,2)+'\\n')\" && git add manifest.json",
+    "release": "npm version patch && git push && git push --tags"
   },
   "keywords": [
     "mcp",
