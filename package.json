@@ -1,6 +1,6 @@
 {
   "name": "@perspective-ai/mcp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Perspective AI MCP Extension for Claude Desktop",
   "main": "server.js",
   "scripts": {

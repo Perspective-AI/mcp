@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "perspective",
   "display_name": "Perspective AI",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Uncover customer insights through meaningful conversations at scale.",
   "long_description": "Connect Claude to Perspective AI—the platform that helps businesses understand their customers through AI-mediated conversations, not surveys. Analyze conversation transcripts, identify themes and pain points, get aggregate statistics, create new research perspectives using natural language, and deploy conversational research across channels. Replace guesswork with clarity and data-driven insights.",
   "author": {
