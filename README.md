@@ -75,6 +75,5 @@ Bumps version, commits, tags, and pushes. GitHub Action creates the release.
 
 ## Links
 
-- [Documentation](https://getperspective.ai/docs/mcp)
 - [Get Access Token](https://getperspective.ai/settings/mcp)
 - [Support](https://github.com/Perspective-AI/perspective-mcp/issues)
