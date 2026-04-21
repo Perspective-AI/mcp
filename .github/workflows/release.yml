@@ -29,3 +29,16 @@ jobs:
         with:
           files: perspective.mcpb
           generate_release_notes: true
+
+      - name: Publish to MCP Registry
+        env:
+          MCP_REGISTRY_PRIVATE_KEY: ${{ secrets.MCP_REGISTRY_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          curl -sSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+          echo "$MCP_REGISTRY_PRIVATE_KEY" > key.pem
+          chmod 600 key.pem
+          PRIVATE_KEY=$(openssl pkey -in key.pem -noout -text | grep -A3 "priv:" | tail -n +2 | tr -d ' :\n')
+          ./mcp-publisher login dns --domain getperspective.ai --private-key "$PRIVATE_KEY"
+          ./mcp-publisher publish
+          rm key.pem
