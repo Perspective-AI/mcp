@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Perspective-AI/mcp/main/assets/logo.svg" alt="Perspective AI" width="400" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Perspective-AI/mcp/main/assets/logo-dark.svg">
+    <img src="https://raw.githubusercontent.com/Perspective-AI/mcp/main/assets/logo-light.svg" alt="Perspective AI" width="400">
+  </picture>
 </p>
 
 # Perspective AI MCP Server
