@@ -24,12 +24,6 @@ Once connected, your AI assistant can create conversation agents, analyze conver
 
 See [Use cases](#use-cases) for the full workflow and [Available tools](#available-tools) for the tool surface.
 
-## Demo
-
-<!-- TODO: Replace with demo GIF (drop file in repo root) or Loom link -->
-
-_Demo walkthrough coming soon._
-
 ## Quick Install
 
 1. Download [`perspective.mcpb`](https://github.com/Perspective-AI/mcp/releases/latest/download/perspective.mcpb)
@@ -54,6 +48,10 @@ See [Manual installation](#manual-installation) for per-client setup snippets.
 1. Go to [Perspective AI Settings](https://getperspective.ai/settings/mcp)
 2. Generate a token
 3. Paste it during installation
+
+![Generate an MCP access token](https://getperspective.ai/content-images/images/generate-mcp-token.gif)
+
+See the [full MCP documentation](https://getperspective.ai/docs/build/mcp) for troubleshooting and advanced setup.
 
 ## Available Tools
 
@@ -173,4 +171,5 @@ Bumps version, commits, tags, and pushes. GitHub Action creates the release.
 ## Links
 
 - [Get Access Token](https://getperspective.ai/settings/mcp)
+- [Full MCP Documentation](https://getperspective.ai/docs/build/mcp)
 - [Support](https://github.com/Perspective-AI/mcp/issues)
