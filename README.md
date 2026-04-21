@@ -2,8 +2,6 @@
 
 **Forms are costing you business. An AI concierge turns them into conversations.**
 
-An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.
-
 The MCP server for [Perspective AI](https://getperspective.ai), the platform for qualitative customer conversations at scale. Create conversation agents, analyze conversations, deploy embeds, and automate follow-ups directly from Claude Desktop, Claude Code, Cursor, or any MCP-compatible client.
 
 ## What is Perspective AI?
@@ -86,7 +84,7 @@ Once installed, your AI assistant can call the following tools, grouped by lifec
 
 ## Use cases
 
-Once installed, ask your AI assistant to drive the full perspective lifecycle: design, deploy, distribute, analyze, and automate.
+Once installed, ask your AI assistant to drive the full perspective lifecycle: design, deploy, analyze, and automate.
 
 - **Design & iterate**. Create any of four conversation agent types:
   - [**Interviewer**](https://getperspective.ai/agents/interviewer): Scales deep, qualitative interviews without losing quality
@@ -99,8 +97,9 @@ Once installed, ask your AI assistant to drive the full perspective lifecycle: d
   - "Build an Interviewer for churn research. Find out why customers left, what alternatives they chose, and what would have kept them."
   - "Spin up an Evaluator for 30-day onboarding feedback. What's working and what's confusing?"
   - "Set up an Advocate for our refund policy. Listen first, then explain the process without sounding defensive."
-- **Embed in your site**: "Give me the popup embed snippet for my concierge and walk me through adding it to our pricing page in Next.js."
-- **Send personalized invites**: "Invite our 20 design partners to my beta-feedback perspective, and prefill each person's name and email."
+- **Deploy & distribute**. Embed on your site or send personalized invites to specific participants:
+  - "Give me the popup embed snippet for my concierge and walk me through adding it to our pricing page in Next.js."
+  - "Invite our 20 design partners to my beta-feedback perspective, and prefill each person's name and email."
 - **Analyze**: "Why are people abandoning my lead-capture concierge this week? Pull the drop-off conversations and summarize the top reasons."
 - **Automate**: "Whenever a conversation scores above 80 on trust, push it to HubSpot as a contact and ping #sales in Slack."
 

@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "ai.getperspective/mcp",
   "title": "Perspective AI",
-  "description": "An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.",
+  "description": "MCP server for Perspective AI. Design conversation agents, analyze conversations, deploy embeds, and automate follow-ups from any MCP-compatible client.",
   "version": "0.0.6",
   "repository": {
     "url": "https://github.com/Perspective-AI/mcp",
