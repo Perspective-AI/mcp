@@ -2,20 +2,19 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "ai.getperspective/mcp",
   "title": "Perspective AI",
-  "description": "MCP server for Perspective AI. Design conversation agents, analyze conversations, deploy embeds, and automate follow-ups from any MCP-compatible client.",
+  "description": "MCP server for Perspective AI. Design, deploy, analyze, and automate conversation agents.",
   "version": "0.0.6",
-  "websiteUrl": "https://getperspective.ai",
+  "websiteUrl": "https://getperspective.ai/docs/build/mcp",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png",
+      "mimeType": "image/png"
+    }
+  ],
   "repository": {
     "url": "https://github.com/Perspective-AI/mcp",
     "source": "github"
   },
-  "icons": [
-    {
-      "src": "https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png",
-      "mimeType": "image/png",
-      "sizes": ["512x512"]
-    }
-  ],
   "remotes": [
     {
       "type": "streamable-http",
@@ -23,9 +22,16 @@
       "headers": [
         {
           "name": "Authorization",
-          "description": "Bearer token generated at https://getperspective.ai/settings/mcp. Format: 'Bearer <token>'.",
-          "isRequired": true,
-          "isSecret": true
+          "description": "Authorization header for authenticated requests",
+          "value": "Bearer {perspective_token}",
+          "variables": {
+            "perspective_token": {
+              "description": "Access token generated at https://getperspective.ai/settings/mcp",
+              "format": "string",
+              "isRequired": true,
+              "isSecret": true
+            }
+          }
         }
       ]
     }
