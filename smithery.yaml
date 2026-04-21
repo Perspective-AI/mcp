@@ -5,10 +5,14 @@
 # on Smithery's side. Submission flow:
 #   1. smithery.ai/new → enter https://getperspective.ai/mcp
 #   2. Smithery auto-scans the endpoint, generates the listing
-#   3. Bearer token is prompted at install time via the standard auth modal
+#   3. User pastes their 'Authorization' header value at install time
+#      (format: "Bearer <token>"); Smithery's gateway forwards it upstream.
 #
 # Alternatively, via CLI:
-#   smithery mcp publish https://getperspective.ai/mcp -n @perspective-ai/mcp
+#   smithery mcp publish https://getperspective.ai/mcp -n @perspective-ai/mcp-server
+#
+# Qualified name on Smithery: @perspective-ai/mcp-server
+# (the short slug 'mcp' is reserved by Smithery).
 
-name: perspective-mcp
+name: mcp-server
 target: remote
