@@ -1,5 +1,7 @@
 .git
 .gitignore
 .mcpbignore
+.github
 *.mcpb
 package-lock.json
+assets

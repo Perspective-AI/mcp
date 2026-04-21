@@ -49,7 +49,7 @@ See [Manual installation](#manual-installation) for per-client setup snippets.
 2. Generate a token
 3. Paste it during installation
 
-![Generate an MCP access token](https://getperspective.ai/content-images/images/generate-mcp-token.gif)
+![Generate an MCP access token](https://raw.githubusercontent.com/Perspective-AI/mcp/main/assets/generate-mcp-token.gif)
 
 See the [full MCP documentation](https://getperspective.ai/docs/build/mcp) for troubleshooting and advanced setup.
 
