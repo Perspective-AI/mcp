@@ -11,7 +11,7 @@
     "url": "https://getperspective.ai"
   },
   "homepage": "https://getperspective.ai",
-  "documentation": "https://getperspective.ai/docs/mcp",
+  "documentation": "https://getperspective.ai/docs/build/mcp",
   "icon": "icon.png",
   "repository": {
     "type": "git",
