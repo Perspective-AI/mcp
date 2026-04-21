@@ -1,6 +1,6 @@
 {
   "name": "@perspective-ai/mcp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.",
   "main": "server.js",
   "scripts": {
