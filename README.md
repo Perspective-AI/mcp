@@ -9,7 +9,7 @@
 
 > Forms are costing you business. An AI concierge turns them into conversations.
 
-MCP server for [Perspective AI](https://getperspective.ai). An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.
+MCP server for [Perspective AI](https://getperspective.ai), the platform for qualitative customer conversations at scale. An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.
 
 Rigid forms cause drop-off, weaken qualification, and strip away context. Perspective uses adaptive AI to capture structured data and trigger automation, so you understand what truly matters to your customers and can make decisions with conviction.
 
@@ -29,24 +29,24 @@ Whenever a conversation scores above 80 on trust, push it to HubSpot and ping #s
 
 See [Use cases](#use-cases) for the full workflow and [Available tools](#available-tools) for the tool surface.
 
-## Quick Install
-
-1. Download [`perspective.mcpb`](https://github.com/Perspective-AI/mcp/releases/latest/download/perspective.mcpb)
-2. Double-click to open in Claude Desktop
-3. Click "Install"
-4. Enter your access token when prompted
-
 ## Supported clients
 
 | Client | Install method |
 |--------|----------------|
-| Claude Desktop | One-click `.mcpb` bundle (above) |
+| Claude Desktop | One-click `.mcpb` bundle ([Quick Install](#quick-install)) |
 | Claude Code | `claude mcp add` with HTTP transport |
 | Cursor | `mcpServers` JSON config |
 | Windsurf | `mcpServers` JSON config |
 | Any MCP client | Remote HTTP at `https://getperspective.ai/mcp` + bearer token |
 
 See [Manual installation](#manual-installation) for per-client setup snippets.
+
+## Quick Install
+
+1. Download [`perspective.mcpb`](https://github.com/Perspective-AI/mcp/releases/latest/download/perspective.mcpb)
+2. Double-click to open in Claude Desktop
+3. Click "Install"
+4. Enter your access token when prompted
 
 ## Getting Your Access Token
 
