@@ -9,7 +9,7 @@
 
 > Forms are costing you business. An AI concierge turns them into conversations.
 
-MCP server for [Perspective AI](https://getperspective.ai), the platform for qualitative customer conversations at scale. An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.
+MCP server for [Perspective AI](https://getperspective.ai). An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.
 
 Rigid forms cause drop-off, weaken qualification, and strip away context. Perspective uses adaptive AI to capture structured data and trigger automation, so you understand what truly matters to your customers and can make decisions with conviction.
 
