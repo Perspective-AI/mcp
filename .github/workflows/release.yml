@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Pack extension
-        run: npx -y @anthropic-ai/mcpb pack
+        run: npx -y @anthropic-ai/mcpb pack . perspective.mcpb
 
       - name: Create Release
         uses: softprops/action-gh-release@v2

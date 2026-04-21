@@ -4,7 +4,7 @@
   "description": "An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.",
   "main": "server.js",
   "scripts": {
-    "pack": "npx -y @anthropic-ai/mcpb pack",
+    "pack": "npx -y @anthropic-ai/mcpb pack . perspective.mcpb",
     "start": "node server.js",
     "version": "node -e \"['manifest.json','server.json'].forEach(f=>{const j=require('./'+f);j.version=process.env.npm_package_version;require('fs').writeFileSync('./'+f,JSON.stringify(j,null,2)+'\\n')});\" && git add manifest.json server.json",
     "release": "npm version patch && git push && git push --tags"
