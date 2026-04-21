@@ -3,8 +3,8 @@
   "name": "perspective",
   "display_name": "Perspective AI",
   "version": "0.0.2",
-  "description": "Uncover customer insights through meaningful conversations at scale.",
-  "long_description": "Connect Claude to Perspective AI—the platform that helps businesses understand their customers through AI-mediated conversations, not surveys. Analyze conversation transcripts, identify themes and pain points, get aggregate statistics, create new research perspectives using natural language, and deploy conversational research across channels. Replace guesswork with clarity and data-driven insights.",
+  "description": "An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.",
+  "long_description": "Perspective AI is the platform for qualitative customer conversations at scale. It replaces static surveys, forms, and manual interviews with intelligent AI agents (Concierge, Interviewer, Evaluator, Advocate) that have natural, deep conversations with your customers, then synthesizes the results into actionable insights. With this extension, your AI assistant can create conversation agents, analyze conversations, deploy embeds, and automate follow-ups without leaving your IDE or desktop client.",
   "author": {
     "name": "Perspective AI",
     "email": "support@getperspective.ai",
@@ -15,7 +15,7 @@
   "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Perspective-AI/perspective-mcp"
+    "url": "https://github.com/Perspective-AI/mcp"
   },
   "license": "MIT",
   "server": {
@@ -56,6 +56,10 @@
       "description": "Get details of a specific workspace"
     },
     {
+      "name": "workspace_get_default",
+      "description": "Get your default workspace"
+    },
+    {
       "name": "perspective_list",
       "description": "List all perspectives in a workspace"
     },
@@ -66,6 +70,10 @@
     {
       "name": "perspective_create",
       "description": "Create a new perspective from natural language"
+    },
+    {
+      "name": "perspective_respond",
+      "description": "Answer a follow-up question during perspective creation"
     },
     {
       "name": "perspective_update",
@@ -94,6 +102,18 @@
     {
       "name": "perspective_get_embed_options",
       "description": "Get embed configuration options"
+    },
+    {
+      "name": "participant_invite",
+      "description": "Create magic-link invites for participants, optionally sent via email"
+    },
+    {
+      "name": "automation_manage",
+      "description": "Create, list, update, delete, toggle, or test automations (webhook, email, Slack, HubSpot)"
+    },
+    {
+      "name": "integration_manage",
+      "description": "List providers (Slack, HubSpot), connect them, and search their tools"
     }
   ],
   "prompts_generated": true

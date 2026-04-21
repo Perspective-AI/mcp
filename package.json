@@ -1,30 +1,34 @@
 {
   "name": "@perspective-ai/mcp",
   "version": "0.0.2",
-  "description": "Perspective AI MCP Extension for Claude Desktop",
+  "description": "An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.",
   "main": "server.js",
   "scripts": {
     "pack": "npx -y @anthropic-ai/mcpb pack && mv perspective-mcp.mcpb perspective.mcpb",
     "start": "node server.js",
-    "version": "node -e \"const m=require('./manifest.json');m.version='$npm_package_version';require('fs').writeFileSync('./manifest.json',JSON.stringify(m,null,2)+'\\n')\" && git add manifest.json",
+    "version": "node -e \"['manifest.json','server.json'].forEach(f=>{const j=require('./'+f);j.version=process.env.npm_package_version;require('fs').writeFileSync('./'+f,JSON.stringify(j,null,2)+'\\n')});\" && git add manifest.json server.json",
     "release": "npm version patch && git push && git push --tags"
   },
   "keywords": [
     "mcp",
-    "claude",
-    "perspective",
-    "ai",
-    "research"
+    "mcp-server",
+    "perspective-ai",
+    "ai-concierge",
+    "conversational-ai",
+    "forms",
+    "lead-qualification",
+    "customer-feedback",
+    "claude"
   ],
   "author": "Perspective AI",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Perspective-AI/perspective-mcp.git"
+    "url": "https://github.com/Perspective-AI/mcp.git"
   },
   "homepage": "https://getperspective.ai",
   "bugs": {
-    "url": "https://github.com/Perspective-AI/perspective-mcp/issues"
+    "url": "https://github.com/Perspective-AI/mcp/issues"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.24.3"

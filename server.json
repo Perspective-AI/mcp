@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.getperspective/mcp",
+  "title": "Perspective AI",
+  "description": "An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.",
+  "version": "0.0.2",
+  "repository": {
+    "url": "https://github.com/Perspective-AI/mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://getperspective.ai/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer token generated at https://getperspective.ai/settings/mcp. Format: 'Bearer <token>'.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
