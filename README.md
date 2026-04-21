@@ -1,24 +1,28 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Perspective-AI/mcp/main/assets/logo.svg" alt="Perspective AI" width="400" />
+</p>
+
 # Perspective AI MCP Server
 
-**Forms are costing you business. An AI concierge turns them into conversations.**
+> Forms are costing you business. An AI concierge turns them into conversations.
 
-The MCP server for [Perspective AI](https://getperspective.ai), the platform for qualitative customer conversations at scale. Create conversation agents, analyze conversations, deploy embeds, and automate follow-ups directly from Claude Desktop, Claude Code, Cursor, or any MCP-compatible client.
-
-## What is Perspective AI?
-
-Perspective AI is an AI-powered platform for conducting qualitative customer conversations at scale. It replaces static surveys, forms, and manual interviews with intelligent AI agents that have natural, deep conversations with your customers, then synthesizes the results into actionable insights.
+MCP server for [Perspective AI](https://getperspective.ai). An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.
 
 Rigid forms cause drop-off, weaken qualification, and strip away context. Perspective uses adaptive AI to capture structured data and trigger automation, so you understand what truly matters to your customers and can make decisions with conviction.
 
 ## What this MCP server does
 
-Once connected, your AI assistant can create conversation agents, analyze conversations, deploy embeds, and automate follow-ups without leaving your IDE or desktop client. Try prompts like:
+Once connected, your AI assistant can design conversation agents, analyze conversations, deploy embeds, and automate follow-ups directly from Claude Desktop, Claude Code, Cursor, or any MCP-compatible client. Try prompts like:
 
-> "Design a Concierge that qualifies pricing-page leads by budget and timeline."
->
-> "Why are people abandoning my lead-capture concierge this week?"
->
-> "Whenever a conversation scores above 80 on trust, push it to HubSpot and ping #sales in Slack."
+```text
+Design a Concierge that qualifies pricing-page leads by budget and timeline.
+```
+```text
+Why are people abandoning my lead-capture concierge this week?
+```
+```text
+Whenever a conversation scores above 80 on trust, push it to HubSpot and ping #sales in Slack.
+```
 
 See [Use cases](#use-cases) for the full workflow and [Available tools](#available-tools) for the tool surface.
 
@@ -171,4 +175,5 @@ Bumps version, commits, tags, and pushes. GitHub Action creates the release.
 
 - [Get Access Token](https://getperspective.ai/settings/mcp)
 - [Full MCP Documentation](https://getperspective.ai/docs/build/mcp)
+- [Brand Assets](https://getperspective.ai/assets)
 - [Support](https://github.com/Perspective-AI/mcp/issues)
