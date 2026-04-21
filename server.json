@@ -3,7 +3,7 @@
   "name": "ai.getperspective/mcp",
   "title": "Perspective AI",
   "description": "An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": {
     "url": "https://github.com/Perspective-AI/mcp",
     "source": "github"
