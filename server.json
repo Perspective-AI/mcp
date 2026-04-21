@@ -4,10 +4,18 @@
   "title": "Perspective AI",
   "description": "MCP server for Perspective AI. Design conversation agents, analyze conversations, deploy embeds, and automate follow-ups from any MCP-compatible client.",
   "version": "0.0.6",
+  "websiteUrl": "https://getperspective.ai",
   "repository": {
     "url": "https://github.com/Perspective-AI/mcp",
     "source": "github"
   },
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
   "remotes": [
     {
       "type": "streamable-http",
