@@ -1,0 +1,14 @@
+# Smithery configuration for the Perspective AI MCP server.
+# https://smithery.ai/docs
+#
+# This server is hosted at https://getperspective.ai/mcp — no build required
+# on Smithery's side. Submission flow:
+#   1. smithery.ai/new → enter https://getperspective.ai/mcp
+#   2. Smithery auto-scans the endpoint, generates the listing
+#   3. Bearer token is prompted at install time via the standard auth modal
+#
+# Alternatively, via CLI:
+#   smithery mcp publish https://getperspective.ai/mcp -n @perspective-ai/mcp
+
+name: perspective-mcp
+target: remote
