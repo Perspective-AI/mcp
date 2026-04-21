@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "perspective",
   "display_name": "Perspective AI",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.",
   "long_description": "Perspective AI is the platform for qualitative customer conversations at scale. It replaces static surveys, forms, and manual interviews with intelligent AI agents (Concierge, Interviewer, Evaluator, Advocate) that have natural, deep conversations with your customers, then synthesizes the results into actionable insights. With this extension, your AI assistant can create conversation agents, analyze conversations, deploy embeds, and automate follow-ups without leaving your IDE or desktop client.",
   "author": {
