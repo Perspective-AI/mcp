@@ -24,9 +24,6 @@ jobs:
       - name: Pack extension
         run: npx -y @anthropic-ai/mcpb pack
 
-      - name: Rename artifact
-        run: mv perspective-mcp.mcpb perspective.mcpb
-
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
