@@ -180,3 +180,6 @@ Bumps version, commits, tags, and pushes. GitHub Action creates the release.
 - [Full MCP Documentation](https://getperspective.ai/docs/build/mcp)
 - [Brand Assets](https://getperspective.ai/assets)
 - [Support](https://github.com/Perspective-AI/mcp/issues)
+
+## Badges
+[![MCP Badge](https://lobehub.com/badge/mcp/perspective-ai-perspective-mcp?style=plastic)](https://lobehub.com/mcp/perspective-ai-perspective-mcp)
