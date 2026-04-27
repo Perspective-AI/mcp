@@ -5,3 +5,8 @@
 *.mcpb
 package-lock.json
 assets
+Dockerfile
+glama.json
+smithery.yaml
+server.json
+scripts
