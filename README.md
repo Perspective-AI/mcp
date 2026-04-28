@@ -229,3 +229,8 @@ Bumps version, commits, tags, and pushes. GitHub Action creates the release.
 - [Full MCP Documentation](https://getperspective.ai/docs/build/mcp)
 - [Brand Assets](https://getperspective.ai/assets)
 - [Support](https://github.com/Perspective-AI/mcp/issues)
+
+## Badges
+
+[![Smithery badge](https://smithery.ai/badge/perspective-ai/mcp-server)](https://smithery.ai/servers/perspective-ai/mcp-server)
+[![Glama MCP server](https://glama.ai/mcp/servers/Perspective-AI/mcp/badges/score.svg)](https://glama.ai/mcp/servers/Perspective-AI/mcp)
