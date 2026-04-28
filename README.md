@@ -29,65 +29,154 @@ Whenever a conversation scores above 80 on trust, push it to HubSpot and ping #s
 
 See [Use cases](#use-cases) for the full workflow and [Available tools](#available-tools) for the tool surface.
 
-## Supported clients
+## Connect via OAuth (recommended)
 
-| Client | Install method |
-|--------|----------------|
-| Claude Desktop | One-click `.mcpb` bundle ([Quick Install](#quick-install)) |
-| Claude Code | `claude mcp add` with HTTP transport |
-| Cursor | `mcpServers` JSON config |
-| Windsurf | `mcpServers` JSON config |
-| Any MCP client | Remote HTTP at `https://getperspective.ai/mcp` + bearer token |
+Add the MCP URL to your client and complete a one-time browser sign-in. Tokens stay out of config files; every connected app shows up under **Settings → Connected Apps** in your workspace, and you can revoke access anytime.
 
-See [Manual installation](#manual-installation) for per-client setup snippets.
+The MCP URL is the same for everyone:
 
-## Quick Install
+```
+https://getperspective.ai/mcp
+```
 
-1. Download [`perspective.mcpb`](https://github.com/Perspective-AI/mcp/releases/latest/download/perspective.mcpb)
-2. Double-click to open in Claude Desktop
-3. Click "Install"
-4. Enter your access token when prompted
+### Claude Code
 
-## Getting Your Access Token
+```bash
+claude mcp add --transport http perspective https://getperspective.ai/mcp
+```
 
-1. Go to [Perspective AI Settings](https://getperspective.ai/settings/mcp)
-2. Generate a token
-3. Paste it during installation
+### Cursor and VS Code
+
+Add to your `mcp.json`:
+```json
+{
+  "mcpServers": {
+    "perspective": {
+      "type": "http",
+      "url": "https://getperspective.ai/mcp"
+    }
+  }
+}
+```
+
+### Claude.ai (web and desktop)
+
+Open [the Add custom connector modal](https://claude.ai/settings/connectors?modal=add-custom-connector) and fill:
+
+| Field | Value |
+|-------|-------|
+| Name | `Perspective AI` |
+| Remote MCP server URL | `https://getperspective.ai/mcp` |
+
+Click **Add**, then complete the OAuth browser flow. (Manual path: **Customize → Connectors → Add custom connector**. See [Anthropic's guide](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp). Available on Free, Pro, Max, Team, and Enterprise plans.)
+
+### Other MCP clients
+
+Stdio-only clients can use [`mcp-remote`](https://www.npmjs.com/package/mcp-remote), which discovers OAuth metadata automatically:
+```json
+{
+  "mcpServers": {
+    "perspective": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://getperspective.ai/mcp"]
+    }
+  }
+}
+```
+
+The first time you call a Perspective tool, your client opens a browser window to complete OAuth. Subsequent requests reuse the token.
+
+## Connect with a personal access token
+
+If your client doesn't support OAuth or you'd rather authenticate with a long-lived token, generate one at [Perspective AI Settings → MCP](https://getperspective.ai/settings/mcp).
 
 ![Generate an MCP access token](https://raw.githubusercontent.com/Perspective-AI/mcp/main/assets/generate-mcp-token.gif)
 
+### Claude Desktop one-click install
+
+1. Download [`perspective.mcpb`](https://github.com/Perspective-AI/mcp/releases/latest/download/perspective.mcpb)
+2. Double-click to open in Claude Desktop
+3. Click **Install**, then paste your token when prompted
+
+### Claude Code
+
+```bash
+claude mcp add perspective --transport http https://getperspective.ai/mcp --header "Authorization: Bearer YOUR_TOKEN"
+```
+
+### Cursor and VS Code
+
+Add to your `mcp.json`:
+```json
+{
+  "mcpServers": {
+    "perspective": {
+      "type": "http",
+      "url": "https://getperspective.ai/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_TOKEN"
+      }
+    }
+  }
+}
+```
+
+### Other MCP clients
+
+For stdio-only clients, use `mcp-remote` with an explicit `Authorization` header:
+```json
+{
+  "mcpServers": {
+    "perspective": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://getperspective.ai/mcp",
+        "--header",
+        "Authorization: Bearer YOUR_TOKEN"
+      ]
+    }
+  }
+}
+```
+
 See the [full MCP documentation](https://getperspective.ai/docs/build/mcp) for troubleshooting and advanced setup.
 
-## Available Tools
+## Available tools
 
-Once installed, your AI assistant can call the following tools, grouped by lifecycle stage:
+Once connected, your AI assistant can call the following 22 tools, grouped by lifecycle stage:
 
 **Workspaces**
-- **workspace_list**: List all your workspaces
-- **workspace_get**: Get workspace details
+- **workspace_list**: List all workspaces you can access
+- **workspace_get**: Get details for a workspace
 - **workspace_get_default**: Get your default workspace
 
 **Design & iterate**
-- **perspective_list**: List perspectives in a workspace
-- **perspective_get**: Get perspective configuration
-- **perspective_create**: Create a new perspective from a natural-language description
-- **perspective_respond**: Answer a follow-up question during creation
+- **perspective_list**: List perspectives in a workspace, or search by name across all workspaces
+- **perspective_get**: Get full configuration and stats for a perspective
+- **perspective_create**: Create a new perspective from a natural-language brief
+- **perspective_respond**: Answer a follow-up question during perspective design
 - **perspective_update**: Refine a perspective with natural-language feedback
-- **perspective_get_preview_link**: Get a preview link for testing before deployment
+- **perspective_await_job**: Long-poll a perspective design job to completion
+- **perspective_get_preview_link**: Get a shareable preview URL for testing before deployment
 
 **Deploy & distribute**
-- **perspective_get_embed_options**: Get embed snippets (fullpage, widget, popup, slider, float, card)
-- **participant_invite**: Create magic-link invites, optionally sent via email
+- **perspective_get_embed_options**: Get embed snippets (fullpage, widget, popup, slider, float, card) and the SDK reference
+- **participant_invite**: Create 48-hour magic-link invites, optionally sent via email
 
 **Analyze**
 - **perspective_get_stats**: Aggregate stats and distributions over a time period
 - **perspective_list_conversations**: List conversations with filters (status, trust score, date)
-- **perspective_get_conversation**: Get full conversation details
-- **perspective_get_conversations_batch**: Batch retrieve multiple conversations
+- **perspective_get_conversation**: Get full conversation details, including transcript and trust assessment
+- **perspective_get_conversations**: Token-efficient batch fetch of conversations for bulk analysis
 
 **Automate**
-- **automation_manage**: Create, list, update, delete, toggle, or test automations (webhook, email, Slack, HubSpot)
-- **integration_manage**: List available providers (Slack, HubSpot), connect them, and search their tools
+- **automation_list**: List automations on a perspective with status, channel, and metadata
+- **automation_create**: Create an automation (webhook, email, Slack, HubSpot)
+- **automation_update**: Update fields on an existing automation
+- **automation_delete**: Permanently delete an automation
+- **automation_test**: Run an end-to-end test against a mock conversation
+- **integration_manage**: List providers (Slack, HubSpot), connect them, and search their tools
 
 ## Use cases
 
@@ -110,52 +199,12 @@ Once installed, ask your AI assistant to drive the full perspective lifecycle: d
 - **Analyze**: "Why are people abandoning my lead-capture concierge this week? Pull the drop-off conversations and summarize the top reasons."
 - **Automate**: "Whenever a conversation scores above 80 on trust, push it to HubSpot as a contact and ping #sales in Slack."
 
-## Manual Installation
-
-The Perspective MCP server is a remote HTTP endpoint at `https://getperspective.ai/mcp`. Any MCP-compatible client can connect to it.
-
-### Claude Code
-
-```bash
-claude mcp add perspective --transport http https://getperspective.ai/mcp --header "Authorization: Bearer YOUR_TOKEN"
-```
-
-### Claude Desktop
-
-Edit your Claude Desktop config:
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-
-```json
-{
-  "mcpServers": {
-    "perspective": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://getperspective.ai/mcp",
-        "--header",
-        "Authorization: Bearer YOUR_TOKEN"
-      ]
-    }
-  }
-}
-```
-
-### Cursor
-
-Add the same `mcpServers` config above to your Cursor settings.
-
-### Other MCP clients
-
-Point your client at `https://getperspective.ai/mcp` with an `Authorization: Bearer YOUR_TOKEN` header over streamable HTTP.
-
 ## Security & data
 
-- **Token scoping**: Your MCP access token is tied to your Perspective AI account and authorizes the server to act on your behalf within your workspaces.
-- **Revocation**: Generate, rotate, or revoke tokens any time at [getperspective.ai/settings/mcp](https://getperspective.ai/settings/mcp).
-- **Transport**: All traffic is TLS-encrypted. Your token is sent only in the `Authorization` header to `https://getperspective.ai/mcp`.
-- **Data residency**: Conversation data stays inside your Perspective AI workspace. This package is a thin stdio-to-HTTP proxy; it does not store or cache responses locally.
+- **OAuth**: Tokens issued via OAuth are scoped to the workspace and tied to the connected client. Revoke anytime under Settings → Connected Apps.
+- **Personal access tokens**: PATs are tied to your Perspective AI account and authorize the server to act on your behalf within your workspaces. Generate, rotate, or revoke at [getperspective.ai/settings/mcp](https://getperspective.ai/settings/mcp).
+- **Transport**: All traffic is TLS-encrypted. Tokens are sent only in the `Authorization` header to `https://getperspective.ai/mcp`.
+- **Data residency**: Conversation data stays inside your Perspective AI workspace. The `.mcpb` bundle is a thin stdio-to-HTTP proxy; it does not store or cache responses locally.
 
 ## Building from Source
 
@@ -180,6 +229,3 @@ Bumps version, commits, tags, and pushes. GitHub Action creates the release.
 - [Full MCP Documentation](https://getperspective.ai/docs/build/mcp)
 - [Brand Assets](https://getperspective.ai/assets)
 - [Support](https://github.com/Perspective-AI/mcp/issues)
-
-## Badges
-[![MCP Badge](https://lobehub.com/badge/mcp/perspective-ai-perspective-mcp?style=plastic)](https://lobehub.com/mcp/perspective-ai-perspective-mcp)

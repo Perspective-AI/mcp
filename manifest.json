@@ -51,11 +51,11 @@
   "tools": [
     {
       "name": "workspace_list",
-      "description": "List all workspaces you have access to"
+      "description": "List all workspaces you can access"
     },
     {
       "name": "workspace_get",
-      "description": "Get details of a specific workspace"
+      "description": "Get details for a workspace"
     },
     {
       "name": "workspace_get_default",
@@ -63,55 +63,75 @@
     },
     {
       "name": "perspective_list",
-      "description": "List all perspectives in a workspace"
+      "description": "List perspectives in a workspace, or search by name across all workspaces"
     },
     {
       "name": "perspective_get",
-      "description": "Get perspective configuration and stats"
+      "description": "Get full configuration and stats for a perspective"
     },
     {
       "name": "perspective_create",
-      "description": "Create a new perspective from natural language"
+      "description": "Create a new perspective from a natural-language brief"
     },
     {
       "name": "perspective_respond",
-      "description": "Answer a follow-up question during perspective creation"
+      "description": "Answer a follow-up question during perspective design"
     },
     {
       "name": "perspective_update",
-      "description": "Update perspective with feedback"
+      "description": "Refine a perspective with natural-language feedback"
     },
     {
-      "name": "perspective_get_stats",
-      "description": "Get aggregate statistics for a perspective"
-    },
-    {
-      "name": "perspective_list_conversations",
-      "description": "List conversations with filtering"
-    },
-    {
-      "name": "perspective_get_conversation",
-      "description": "Get full conversation details"
-    },
-    {
-      "name": "perspective_get_conversations_batch",
-      "description": "Get batch of conversations for analysis"
+      "name": "perspective_await_job",
+      "description": "Long-poll a perspective design job to completion"
     },
     {
       "name": "perspective_get_preview_link",
-      "description": "Get shareable preview link for a perspective"
+      "description": "Get a shareable preview URL for testing before deployment"
     },
     {
       "name": "perspective_get_embed_options",
-      "description": "Get embed configuration options"
+      "description": "Get embed snippets (fullpage, widget, popup, slider, float, card) and the SDK reference"
+    },
+    {
+      "name": "perspective_get_stats",
+      "description": "Aggregate stats and distributions over a time window"
+    },
+    {
+      "name": "perspective_list_conversations",
+      "description": "List conversations with filters by status, trust score, and date"
+    },
+    {
+      "name": "perspective_get_conversation",
+      "description": "Get full conversation details, including transcript and trust assessment"
+    },
+    {
+      "name": "perspective_get_conversations",
+      "description": "Token-efficient batch fetch of conversations for bulk analysis"
     },
     {
       "name": "participant_invite",
-      "description": "Create magic-link invites for participants, optionally sent via email"
+      "description": "Create 48-hour magic-link invites for participants, optionally sent via email"
     },
     {
-      "name": "automation_manage",
-      "description": "Create, list, update, delete, toggle, or test automations (webhook, email, Slack, HubSpot)"
+      "name": "automation_list",
+      "description": "List automations on a perspective with status and metadata"
+    },
+    {
+      "name": "automation_create",
+      "description": "Create an automation (webhook, email, Slack, HubSpot)"
+    },
+    {
+      "name": "automation_update",
+      "description": "Update fields on an existing automation"
+    },
+    {
+      "name": "automation_delete",
+      "description": "Permanently delete an automation"
+    },
+    {
+      "name": "automation_test",
+      "description": "Run an end-to-end test of an automation against a mock conversation"
     },
     {
       "name": "integration_manage",

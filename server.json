@@ -18,22 +18,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://getperspective.ai/mcp",
-      "headers": [
-        {
-          "name": "Authorization",
-          "description": "Authorization header for authenticated requests",
-          "value": "Bearer {perspective_token}",
-          "variables": {
-            "perspective_token": {
-              "description": "Access token generated at https://getperspective.ai/settings/mcp",
-              "format": "string",
-              "isRequired": true,
-              "isSecret": true
-            }
-          }
-        }
-      ]
+      "url": "https://getperspective.ai/mcp"
     }
   ]
 }
