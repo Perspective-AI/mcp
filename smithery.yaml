@@ -1,18 +1,19 @@
 # Smithery configuration for the Perspective AI MCP server.
 # https://smithery.ai/docs
 #
-# This server is hosted at https://getperspective.ai/mcp — no build required
+# This server is hosted at https://getperspective.ai/mcp; no build required
 # on Smithery's side. Submission flow:
 #   1. smithery.ai/new → enter https://getperspective.ai/mcp
 #   2. Smithery auto-scans the endpoint, generates the listing
-#   3. User pastes their 'Authorization' header value at install time
-#      (format: "Bearer <token>"); Smithery's gateway forwards it upstream.
+#   3. Users connect via OAuth (auto-discovered from the server). The PAT
+#      path still works for clients that prefer it.
 #
 # Alternatively, via CLI:
-#   smithery mcp publish https://getperspective.ai/mcp -n @perspective-ai/mcp-server
+#   smithery mcp publish https://getperspective.ai/mcp -n @perspective-ai/concierge
 #
-# Qualified name on Smithery: @perspective-ai/mcp-server
-# (the short slug 'mcp' is reserved by Smithery).
+# Qualified name on Smithery: @perspective-ai/concierge
+# (the 'mcp' slug is reserved by Smithery; we use 'concierge' which
+# aligns with our flagship agent type.)
 
-name: mcp-server
+name: concierge
 target: remote
