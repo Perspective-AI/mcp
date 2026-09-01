@@ -1,0 +1,25 @@
+{
+  "name": "perspective-ai",
+  "description": "An AI Concierge replaces static forms with adaptive AI conversations that understand real situations, structure key information automatically, and trigger the right next step.",
+  "version": "0.0.8",
+  "author": {
+    "name": "Perspective AI",
+    "email": "support@getperspective.ai"
+  },
+  "homepage": "https://getperspective.ai",
+  "repository": "https://github.com/Perspective-AI/mcp",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "perspective-ai",
+    "ai-concierge",
+    "conversational-ai",
+    "forms",
+    "lead-qualification",
+    "customer-feedback",
+    "surveys",
+    "interviews"
+  ],
+  "logo": "assets/logo-light.svg"
+}

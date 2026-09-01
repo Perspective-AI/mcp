@@ -39,13 +39,18 @@ The MCP URL is the same for everyone:
 https://getperspective.ai/mcp
 ```
 
-### Claude Code
+### Cursor (Marketplace - recommended)
 
-```bash
-claude mcp add --transport http perspective https://getperspective.ai/mcp
-```
+Install the official Perspective AI plugin from the Cursor Marketplace:
 
-### Cursor and VS Code
+1. Open **Customize** in the Cursor sidebar
+2. Search for **"Perspective AI"** in the marketplace
+3. Click **Install**
+4. Complete the OAuth flow when prompted
+
+The plugin includes the MCP server configuration and a skill that helps your AI assistant know when to use Perspective tools.
+
+### Cursor and VS Code (manual)
 
 Add to your `mcp.json`:
 ```json
@@ -57,6 +62,12 @@ Add to your `mcp.json`:
     }
   }
 }
+```
+
+### Claude Code
+
+```bash
+claude mcp add --transport http perspective https://getperspective.ai/mcp
 ```
 
 ### Claude.ai (web and desktop)
