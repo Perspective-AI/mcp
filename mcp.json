@@ -1,6 +1,7 @@
 {
   "mcpServers": {
     "perspective": {
+      "type": "http",
       "url": "https://getperspective.ai/mcp"
     }
   }
