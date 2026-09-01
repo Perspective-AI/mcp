@@ -21,5 +21,6 @@
     "surveys",
     "interviews"
   ],
-  "logo": "assets/logo-light.svg"
+  "logo": "assets/logo-light.svg",
+  "skills": "skills"
 }
